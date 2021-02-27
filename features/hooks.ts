@@ -6,7 +6,7 @@ import { Context } from '../support/helpers';
 
 
 
-Before(async function (this: Context) {
+Before({timeout: 10 * 1000},async function (this: Context) {
   this.driver = await new Builder()
     .forBrowser('firefox')
     //.setFirefoxOptions(new Options().addArguments('--headless'))
