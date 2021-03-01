@@ -1,6 +1,6 @@
 import { After, Before } from '@cucumber/cucumber';
 import { Builder } from 'selenium-webdriver';
-//import { Options } from 'selenium-webdriver/firefox';
+import { Options } from 'selenium-webdriver/firefox';
 import { Context } from '../support/helpers';
 
 
@@ -8,7 +8,7 @@ import { Context } from '../support/helpers';
 Before({timeout: 30 * 1000},async function (this: Context) {
   this.driver = await new Builder()
     .forBrowser('firefox')
-    //.setFirefoxOptions(new Options().addArguments('--headless'))
+    .setFirefoxOptions(new Options().addArguments('--headless'))
     .build();
     
 
@@ -16,5 +16,5 @@ Before({timeout: 30 * 1000},async function (this: Context) {
 });
 
 After({timeout: 30 * 1000},async function (this: Context) {
-  //await this.driver.close();
+  await this.driver.close();
 });

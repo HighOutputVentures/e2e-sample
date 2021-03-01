@@ -13,7 +13,7 @@ When(`user clicks Amazon signin`,async function (this:Context) {
 });
 
 Then(`signin page is shown`, async function (this:Context) {
-  await this.driver.findElement(By.id(`ap_email`))
+  await this.driver.wait(until.elementLocated(By.id(`ap_email`)))
 });
 
 // Locate by CSS Name, useful in forms
